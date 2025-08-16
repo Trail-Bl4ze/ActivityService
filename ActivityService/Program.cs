@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using ActivityService.App.BackgroundJobs;
 using ActivityService.App.Interfaces;
 using ActivityService.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<ActivityDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 // Регистрация сервисов приложения
+builder.Services.AddHostedService<KafkaConsumerService>();
 builder.Services.AddScoped<IActivityService, ActivityService.App.Services.ActivityService>();
 builder.Services.AddHttpContextAccessor();
 

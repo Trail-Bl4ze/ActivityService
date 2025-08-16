@@ -39,7 +39,7 @@ public class ActivityService : IActivityService
         );
     }
 
-    public async Task<ActivityResponse> AddUserActivityAsync(ActivityRequest ActivityRequest)
+    public async Task<ActivityResponse> AddUserActivityAsync(ActivityRequest ActivityRequest, CancellationToken stoppingToken)
     {
         var imageUrls = new List<string>();
         foreach (var imageFile in ActivityRequest.ImageFiles)
@@ -87,7 +87,7 @@ public class ActivityService : IActivityService
         }
         return $"{_serviceUrl}/{_bucketName}/{fileKey}";
     }
-    public async Task<List<ActivityResponse>?> GetAllUserActivitiesAsync(Guid userId)
+    public async Task<List<ActivityResponse>?> GetAllUserActivitiesAsync(Guid userId, CancellationToken stoppingToken)
     {
         return FContext.Activities
             .Where(p => p.UserId == userId).Adapt<List<ActivityResponse>?>();
