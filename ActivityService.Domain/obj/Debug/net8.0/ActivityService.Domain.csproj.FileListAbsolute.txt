@@ -1,0 +1,12 @@
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/bin/Debug/net8.0/ActivityService.Domain.deps.json
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/bin/Debug/net8.0/ActivityService.Domain.dll
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/bin/Debug/net8.0/ActivityService.Domain.pdb
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.csproj.AssemblyReference.cache
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.AssemblyInfoInputs.cache
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.AssemblyInfo.cs
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.csproj.CoreCompileInputs.cache
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.dll
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/refint/ActivityService.Domain.dll
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ActivityService.Domain.pdb
+/home/ivan/Desktop/TrailBlaze/ActivityService/ActivityService.Domain/obj/Debug/net8.0/ref/ActivityService.Domain.dll
