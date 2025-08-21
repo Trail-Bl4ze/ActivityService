@@ -16,6 +16,6 @@ namespace ActivityService.App.Models
 
     public double Longitude { get; set; }
 
-    public List<IFormFile> ImageFiles { get; set; } = new List<IFormFile>();
+    public List<string> ImageFiles { get; set; } = new List<string>();
     }
 }

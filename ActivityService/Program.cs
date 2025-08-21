@@ -2,6 +2,8 @@ using System.Diagnostics;
 using ActivityService.App.BackgroundJobs;
 using ActivityService.App.Interfaces;
 using ActivityService.Domain;
+using ActivityService.Services;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,21 +20,19 @@ builder.Services.AddDbContext<ActivityDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 // Регистрация сервисов приложения
-builder.Services.AddHostedService<KafkaConsumerService>();
+//builder.Services.AddHostedService<KafkaConsumerService>();
 builder.Services.AddScoped<IActivityService, ActivityService.App.Services.ActivityService>();
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddGrpc(options =>
+{
+    options.EnableDetailedErrors = true;
+    options.MaxReceiveMessageSize = 16 * 1024 * 1024; // 16MB
+});
 
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-//app.UseHttpsRedirection();
 
 app.UseRouting();
 
@@ -44,6 +44,7 @@ app.UseCors(builder => builder
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapGrpcService<ActivitiesGrpcService>();
+app.MapGet("/", () => "gRPC server is running. Use a gRPC client to communicate.");
 
 app.Run();

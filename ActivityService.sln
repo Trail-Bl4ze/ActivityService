@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityService.App", "Acti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityService.Domain", "ActivityService.Domain\ActivityService.Domain.csproj", "{E01C1D3F-A8AF-48E6-883A-75C4CE05BB3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService1", "..\GrpcService1\GrpcService1.csproj", "{8C14B615-A3A6-442A-8CE4-C7ABD978EFE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{E01C1D3F-A8AF-48E6-883A-75C4CE05BB3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E01C1D3F-A8AF-48E6-883A-75C4CE05BB3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E01C1D3F-A8AF-48E6-883A-75C4CE05BB3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C14B615-A3A6-442A-8CE4-C7ABD978EFE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C14B615-A3A6-442A-8CE4-C7ABD978EFE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C14B615-A3A6-442A-8CE4-C7ABD978EFE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C14B615-A3A6-442A-8CE4-C7ABD978EFE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

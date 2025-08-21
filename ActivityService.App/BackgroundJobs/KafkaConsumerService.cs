@@ -32,8 +32,6 @@ public class KafkaConsumerService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {   
-        try
-        {
             _consumer.Subscribe("user-activities");
             
             while (!stoppingToken.IsCancellationRequested)
@@ -68,12 +66,6 @@ public class KafkaConsumerService : BackgroundService
                     await Task.Delay(1000, stoppingToken);
                 }
             }
-        }
-        finally
-        {
-            _consumer.Close();
-            _consumer.Unsubscribe();
-        }
     }
 
     public override async Task StopAsync(CancellationToken stoppingToken)
@@ -83,7 +75,6 @@ public class KafkaConsumerService : BackgroundService
 
     public override void Dispose()
     {
-        _consumer.Close();
         _consumer.Dispose();
         base.Dispose();
     }
