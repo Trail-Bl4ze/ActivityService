@@ -70,15 +70,20 @@ public class ActivitiesGrpcService : ActivitiesGrpc.ActivitiesGrpcBase
 
     private static ActivityService.Grpc.ActivityResponse ToGrpcResponse(ActivityService.App.Models.ActivityResponse internalModel)
     {
-        var response = new ActivityService.Grpc.ActivityResponse
+        var response = new ActivityService.Grpc.ActivityResponse()
         {
             Id = internalModel.Id.ToString(),
             UserId = internalModel.UserId.ToString(),
             Title = internalModel.Title,
             Description = internalModel.Description,
             Latitude = internalModel.Latitude,
-            Longitude = internalModel.Longitude,
+            Longitude = internalModel.Longitude
         };
+
+        foreach (var url in internalModel.ImagesUrls)
+        {
+            response.ImagesUrls.Add(url);
+        }
 
         return response;
     }
