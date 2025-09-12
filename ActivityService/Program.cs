@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using ActivityService.App.BackgroundJobs;
 using ActivityService.App.Interfaces;
 using ActivityService.Domain;
 using ActivityService.Services;

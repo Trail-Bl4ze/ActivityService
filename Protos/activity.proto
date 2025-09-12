@@ -8,6 +8,21 @@ package activity.grpc;
 
 service ActivitiesGrpc {
   rpc GetUserActivities (UserActivitiesRequest) returns (UserActivitiesResponse);
+  rpc AddUserActivities (AddUserActivitiesRequest) returns (AddUserActivitiesResponse);
+}
+
+message AddUserActivitiesRequest {
+  string user_id = 2;
+  string title = 3;
+  string description = 4;
+  google.protobuf.Timestamp created_at = 5;
+  double latitude = 6;
+  double longitude = 7;
+  repeated string images_urls = 8;
+}
+
+message AddUserActivitiesResponse {
+  string id = 1;
 }
 
 message UserActivitiesRequest {

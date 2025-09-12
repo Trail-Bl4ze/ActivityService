@@ -3,6 +3,7 @@ using ActivityService.Grpc;
 using Google.Protobuf.WellKnownTypes;
 using ActivityService.App.Interfaces;
 using ActivityService.App.Models;
+using Mapster;
 
 namespace ActivityService.Services;
 
@@ -19,6 +20,30 @@ public class ActivitiesGrpcService : ActivitiesGrpc.ActivitiesGrpcBase
         _logger = logger;
     }
 
+    public override async Task<AddUserActivitiesResponse> AddUserActivities(AddUserActivitiesRequest request,
+        ServerCallContext context)
+    {
+        try
+        {
+            var activity = await _activityService.AddUserActivityAsync(
+                request.Adapt<ActivityRequest>(),
+                context.CancellationToken);
+
+            var response = new AddUserActivitiesResponse()
+            { 
+                Id = activity.Id.ToString()
+            };
+
+            return response;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in GetUserActivities");
+            throw new RpcException(
+                new Status(StatusCode.Internal, "Internal server error"));
+        }
+    }
+
     public override async Task<UserActivitiesResponse> GetUserActivities(
         UserActivitiesRequest request,
         ServerCallContext context)
@@ -27,13 +52,13 @@ public class ActivitiesGrpcService : ActivitiesGrpc.ActivitiesGrpcBase
         {
             // Получаем данные из внутреннего сервиса
             var internalActivities = await _activityService.GetAllUserActivitiesAsync(
-                Guid.Parse(request.UserId), 
+                Guid.Parse(request.UserId),
                 context.CancellationToken);
-            
+
             // Преобразуем во внешний формат gRPC
             var response = new UserActivitiesResponse();
             response.Activities.AddRange(internalActivities.Select(ToGrpcResponse));
-            
+
             return response;
         }
         catch (Exception ex)
